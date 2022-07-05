@@ -1,0 +1,20 @@
+# *******************************************************************************
+# * Copyright (C) 2017-2020 German Aerospace Center (DLR). 
+# * Eclipse ADORe, Automated Driving Open Research https://eclipse.org/adore
+# *
+# * This program and the accompanying materials are made available under the 
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0 
+# *
+# * Contributors: 
+# *  Reza Dariani
+# ********************************************************************************
+float64 x       #center x component
+float64 y       #center y component
+float64 v       #velocity
+float64 psi     #heading
+float64 t0      #time interval start
+float64 t1      #time interval end
+    
