@@ -27,10 +27,13 @@ RUN mkdir -p build
 SHELL ["/bin/bash", "-c"]
 WORKDIR /tmp/${PROJECT}/build
 
+#cmake .. -DCATKIN_DEVEL_PREFIX="/tmp/${PROJECT}/build/install" && \
+
 RUN source /opt/ros/noetic/setup.bash && \
     cmake .. && \
-    cmake --build . --config Release --target install -- -j $(nproc) && \
-    cpack -G DEB && find . -type f -name "*.deb" | xargs mv -t . 
+    cmake --build .  --config Release --target install -- -j $(nproc) && \
+    cpack -G DEB && find . -type f -name "*.deb" | xargs mv -t . && \
+    cd /tmp/${PROJECT}/build && ln -s devel install 
 
 #RUN source /opt/ros/noetic/setup.bash && \
 #    cmake .. -DBUILD_adore_TESTING=ON -DCMAKE_PREFIX_PATH=install -DCMAKE_INSTALL_PREFIX:PATH=install && \
