@@ -24,7 +24,7 @@ set_env:
 all: build
 
 build: set_env
-	rm -rf ${ROOT_DIR}/adore_if_ros_msg/build
+	rm -rf ${ROOT_DIR}/${PROJECT}/build
 	docker build --network host \
                  --tag $(shell echo ${TAG} | tr A-Z a-z) \
                  --build-arg PROJECT=${PROJECT} .
