@@ -19,7 +19,7 @@ ADORe can be coupled with ROS. This repository defines ROS messages used for int
 A detailed list of ROS messages and the typical topics can be found in the subfolder.
 
 ## Structure
-On this level the repository is a docker and make wrapper for the actual content in the subfolder.
+On this level the repository is a docker and make wrapper for the actual content in the module subfolder.
 
 ## Setup
 This repository may be used on a system, which fulfills a set of requirements [adore_setup](https://github.com/dlr-ts/adore_setup).
