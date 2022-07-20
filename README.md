@@ -56,7 +56,9 @@ dpkg -i adore_if_ros_msg/build/*.deb
 You can directly install the adore_if_ros_msg module into your system context 
 with cmake:
 ```bash
-cd adore_if_ros_msg/build cmake .. > /dev/null 2>&1 || true cmake --install . ```
+cd adore_if_ros_msg/build cmake .. > /dev/null 2>&1 || true 
+cmake --install . 
+```
 
 #### Sourceing via cmake install context
 A Cmake install context is provided upon build which can be added during cmake 
