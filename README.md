@@ -35,8 +35,9 @@ make
 ### Build Artifacts
 
 To consume this module you must:
-1. Install the module with one of the provided methods
-2. Add adore_if_ros_msg to your CMakeLists.txt with find_package and catkin_package
+1. Build the project with make
+2. Install or source the module with one of the provided methods
+3. Add adore_if_ros_msg to your CMakeLists.txt with find_package and catkin_package
 
 Once build via make this project offers the multiple options for 
 consuming/installing the module via the **adore_if_ros_msg/build** directory.
@@ -60,7 +61,7 @@ cd adore_if_ros_msg/build cmake .. > /dev/null 2>&1 || true
 cmake --install . 
 ```
 
-#### Sourceing via cmake install context
+#### Sourceing: cmake install context
 A Cmake install context is provided upon build which can be added during cmake 
 configure to your prefix path. When configuring a build add 
 **adore_if_ros_msg/build/install** to your CMAKE_PREFIX_PATH:
@@ -84,7 +85,8 @@ find_package(catkin REQUIRED COMPONENTS
 2. Adding adore_if_ros_msg to catkin_package in your CMakeLists.txt:
 ```cmake
 catkin_package(
-  CATKIN_DEPENDS 
+  CATKIN_DEPENDS
+    ...
     adore_if_ros_msg 
     ...
 )
