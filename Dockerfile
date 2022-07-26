@@ -33,7 +33,8 @@ RUN source /opt/ros/noetic/setup.bash && \
     cmake .. && \
     cmake --build .  --config Release --target install -- -j $(nproc) && \
     cpack -G DEB && find . -type f -name "*.deb" | xargs mv -t . && \
-    cd /tmp/${PROJECT}/build && ln -s devel install 
+    cd /tmp/${PROJECT}/build && ln -s devel install && \
+    mv CMakeCache.txt CMakeCache.txt.build
 
 #RUN source /opt/ros/noetic/setup.bash && \
 #    cmake .. -DBUILD_adore_TESTING=ON -DCMAKE_PREFIX_PATH=install -DCMAKE_INSTALL_PREFIX:PATH=install && \
