@@ -3,7 +3,7 @@ SHELL:=/bin/bash
 .DEFAULT_GOAL := all
 
 
-ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+ROOT_DIR:=$(shell dirname "$(realpath $(firstword $(MAKEFILE_LIST)))")
 MAKEFLAGS += --no-print-directory
 
 .EXPORT_ALL_VARIABLES:
@@ -28,7 +28,7 @@ build: set_env clean
 	docker build --network host \
                  --tag $(shell echo ${TAG} | tr A-Z a-z) \
                  --build-arg PROJECT=${PROJECT} .
-	docker cp $$(docker create --rm $$(echo ${TAG} | tr A-Z a-z)):/tmp/${PROJECT}/build ${ROOT_DIR}/${PROJECT}
+	docker cp $$(docker create --rm $$(echo ${TAG} | tr A-Z a-z)):/tmp/${PROJECT}/build "${ROOT_DIR}/${PROJECT}"
 
 .PHONY: clean
 clean: set_env
