@@ -1,29 +1,29 @@
-
 SHELL:=/bin/bash
 
 .DEFAULT_GOAL := all
 
-
-ROOT_DIR=$(shell dirname "$(realpath $(firstword $(MAKEFILE_LIST)))")
+ROOT_DIR:=$(shell dirname "$(realpath $(firstword $(MAKEFILE_LIST)))")
 MAKEFILE_PATH:=$(shell dirname "$(abspath "$(lastword $(MAKEFILE_LIST)"))")
 
-include make_gadgets/Makefile
-include make_gadgets/docker/Makefile
-MAKEFLAGS += --no-print-directory
 
-.EXPORT_ALL_VARIABLES:
-DOCKER_BUILDKIT?=1
-DOCKER_CONFIG?=
+include make_gadgets/make_gadgets.mk
+include make_gadgets/docker/docker-tools.mk
+include adore_if_ros_msg.mk
 
-#TAG?="latest"
-TAG?="$(shell cd make_gadgets && make get_sanitized_branch_name)"
 
-REPO_DIRECTORY?="${MAKEFILE_PATH}"
+REPO_DIRECTORY="${MAKEFILE_PATH}"
+TAG="$(shell cd make_gadgets && make get_sanitized_branch_name REPO_DIRECTORY=${REPO_DIRECTORY})"
 
 ADORE_IF_ROS_MSG_PROJECT="adore_if_ros_msg"
 ADORE_IF_ROS_MSG_VERSION="latest"
 #ADORE_IF_ROS_MSG_TAG="${ADORE_IF_ROS_MSG_PROJECT}:${ADORE_IF_ROS_MSG_VERSION}"
 ADORE_IF_ROS_MSG_TAG="${ADORE_IF_ROS_MSG_PROJECT}:${TAG}"
+adore_if_ros_msg_TAG="${ADORE_IF_ROS_MSG_TAG}"
+
+
+.EXPORT_ALL_VARIABLES:
+DOCKER_BUILDKIT?=1
+DOCKER_CONFIG?=
 
 .PHONY: all
 all: build
