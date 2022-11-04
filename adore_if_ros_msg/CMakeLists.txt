@@ -109,6 +109,7 @@ find_package(catkin REQUIRED COMPONENTS
    OccupancyCylinderPrediction.msg
    OccupancyCylinderPredictionSet.msg
    ParkingSpot.msg
+   PathRequest.msg
    PlanningResult.msg
    PlanningRequest.msg
    PlanningResultSet.msg
