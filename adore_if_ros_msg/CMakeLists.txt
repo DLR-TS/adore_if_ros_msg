@@ -130,6 +130,7 @@ find_package(catkin REQUIRED COMPONENTS
    SetPointRequest.msg
    SpeedLimit.msg
    SpeedLimitBundle.msg
+   SimResetVehicleDimensions.msg
    StdState.msg
    StopLine.msg
    TCDConnectionState.msg
