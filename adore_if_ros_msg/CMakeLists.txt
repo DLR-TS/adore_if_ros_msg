@@ -130,7 +130,6 @@ find_package(catkin REQUIRED COMPONENTS
    SetPointRequest.msg
    SpeedLimit.msg
    SpeedLimitBundle.msg
-   StdState.msg
    StopLine.msg
    TCDConnectionState.msg
    TCDConnectionStateTrace.msg
