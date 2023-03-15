@@ -20,8 +20,6 @@ all: build
 
 .PHONY: set_env 
 set_env:
-	echo "${ADORE_IF_ROS_MSG_TAG}"
-	exit 1
 	$(eval PROJECT := ${ADORE_IF_ROS_MSG_PROJECT}) 
 	$(eval TAG := ${ADORE_IF_ROS_MSG_TAG})
 

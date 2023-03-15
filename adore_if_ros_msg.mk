@@ -1,6 +1,6 @@
 # This Makefile contains useful targets that can be included in downstream projects.
 
-ifndef ADORE_IF_ROS_MSG_MAKEFILE_PATH
+ifeq ($(filter adore_if_ros_msg.mk, $(notdir $(MAKEFILE_LIST))), adore_if_ros_msg.mk)
 
 MAKEFLAGS += --no-print-directory
 
@@ -14,7 +14,7 @@ else
 ADORE_IF_ROS_MSG_SUBMODULES_PATH:=$(shell realpath ${SUBMODULES_PATH})
 endif
 MAKE_GADGETS_PATH:=${ADORE_IF_ROS_MSG_SUBMODULES_PATH}/make_gadgets
-ifeq ($(wildcard $(MAKE_GADGETS_PATH)),)
+ifeq ($(wildcard $(MAKE_GADGETS_PATH)/*),)
     $(info INFO: To clone submodules use: 'git submodules update --init --recursive')
     $(info INFO: To specify alternative path for submodules use: SUBMODULES_PATH="<path to submodules>" make build')
     $(info INFO: Default submodule path is: ${ADORE_IF_ROS_MSG_MAKEFILE_PATH}')
