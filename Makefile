@@ -6,8 +6,6 @@ SHELL:=/bin/bash
 ROOT_DIR:=$(shell dirname "$(realpath $(firstword $(MAKEFILE_LIST)))")
 MAKEFILE_PATH:=$(shell dirname "$(abspath "$(lastword $(MAKEFILE_LIST)"))")
 
-include make_gadgets/make_gadgets.mk
-include make_gadgets/docker/docker-tools.mk
 include adore_if_ros_msg.mk
 
 MAKEFLAGS += --no-print-directory
@@ -21,7 +19,9 @@ DOCKER_CONFIG?=
 all: build
 
 .PHONY: set_env 
-set_env: 
+set_env:
+	echo "${ADORE_IF_ROS_MSG_TAG}"
+	exit 1
 	$(eval PROJECT := ${ADORE_IF_ROS_MSG_PROJECT}) 
 	$(eval TAG := ${ADORE_IF_ROS_MSG_TAG})
 
