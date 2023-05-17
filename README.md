@@ -18,6 +18,9 @@ ADORe is an open source toolkit for automated vehicle control and decision makin
 ADORe can be coupled with ROS. This repository defines ROS messages used for interaction with ADORe through ROS.
 A detailed list of ROS messages and the typical topics can be found in the subfolder.
 
+## Build Status
+[![CI](https://github.com/DLR-TS/adore_if_ros_msg/actions/workflows/ci.yaml/badge.svg)](https://github.com/DLR-TS/adore_if_ros_msg/actions/workflows/ci.yaml)
+
 ## Structure
 On this level the repository is a docker and make wrapper for the actual content in the module subfolder.
 
