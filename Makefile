@@ -1,10 +1,8 @@
-
 SHELL:=/bin/bash
 
 .DEFAULT_GOAL := all
 
 ROOT_DIR:=$(shell dirname "$(realpath $(firstword $(MAKEFILE_LIST)))")
-MAKEFILE_PATH:=$(shell dirname "$(abspath "$(lastword $(MAKEFILE_LIST)"))")
 
 include adore_if_ros_msg.mk
 
