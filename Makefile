@@ -15,11 +15,13 @@ DOCKER_CONFIG?=
 
 SUBMODULES_PATH?=${ROOT_DIR}
 
+include ${SUBMODULES_PATH}/ci_teststand/ci_teststand.mk
+
 .PHONY: all
 all: build
 
 .PHONY: build
-build: clean root_check docker_group_check _build _docker_save ## Build adore_if_ros_msg
+build: clean root_check docker_group_check _build ## Build adore_if_ros_msg
 
 
 .PHONY: set_env 
@@ -48,11 +50,5 @@ _docker_save: set_env
 _docker_load: set_env
 	@docker load --input "${ROOT_DIR}/${PROJECT}/build/${PROJECT}_${TAG}.tar" 
 
-
 .PHONY: test
-test:
-	bash .ci test
-
-.PHONY: ci_pipeline 
-ci_pipeline:
-	bash .ci
+test: ci_test
