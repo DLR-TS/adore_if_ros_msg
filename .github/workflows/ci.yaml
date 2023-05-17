@@ -31,7 +31,7 @@ jobs:
         with:
           name: workspace
       - name: Build
-        run: make build
+        run: make build && make save_docker_images
       - name: Save workspace
         uses: actions/upload-artifact@v2
         with:
@@ -47,4 +47,4 @@ jobs:
         with:
           name: workspace
       - name: Test
-        run: make _docker_load && make test
+        run: make load_docker_images && make ci_test
