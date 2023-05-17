@@ -34,7 +34,7 @@ include ${MAKE_GADGETS_PATH}/docker/docker-tools.mk
 
 .PHONY: build_adore_if_ros_msg 
 build_adore_if_ros_msg: ## Build adore_if_ros_msg
-	cd "${ADORE_IF_ROS_MSG_MAKEFILE_PATH}" && make
+	cd "${ADORE_IF_ROS_MSG_MAKEFILE_PATH}" && make build
 
 .PHONY: clean_adore_if_ros_msg
 clean_adore_if_ros_msg: ## Clean adore_if_ros_msg build artifacts
