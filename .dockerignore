@@ -7,3 +7,4 @@ Makefile
 .dockerignore
 **.docker*
 make_gadgets
+**.log
