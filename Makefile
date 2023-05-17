@@ -36,6 +36,15 @@ clean: set_env ## Clean adore_if_ros_msg build artifacts
 	docker rm $$(docker ps -a -q --filter "ancestor=${PROJECT}:${TAG}") --force 2> /dev/null || true
 	docker rmi $$(docker images -q ${PROJECT}:${TAG}) --force 2> /dev/null || true
 
+.PHONY: _docker_load
+_docker_save: set_env
+	@docker save --output "${ROOT_DIR}/${PROJECT}/build/${PROJECT}_${TAG}.tar" ${PROJECT}:${TAG} 
+
+.PHONY: _docker_load
+_docker_load: set_env
+	@docker load --input "${ROOT_DIR}/${PROJECT}/build/${PROJECT}_${TAG}.tar" > /dev/null 2>&1 || true
+
+
 .PHONY: test
 test:
 	bash .ci test
